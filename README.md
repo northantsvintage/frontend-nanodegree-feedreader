@@ -10,7 +10,7 @@ In this project, we were given a premade RSS-Feed web app and were required to i
 ## Steps required to successfully run the application
 
 Download the zip file or git clone repo to your Desktop.
-Open index.html in your browser.
+Open index.html in your browser and make sure you run it on the server.
 
 ## Testing the application
 To test the application:
