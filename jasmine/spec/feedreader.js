@@ -1,11 +1,9 @@
 /* ------------------------------- RSSFEED TESTS ---------------------------------- */
-
 $(function() {
 
-/* ------------------------------- FEEDS ---------------------------------- */
+    /* ------------------------------- FEEDS ---------------------------------- */
     // RSS Feeds Suite testing if feeds and urls are defined 
     describe('RSS Feeds', function() {
-
 
         // all feeds are defined and are not empty
         it('Feeds are defined', function() {
@@ -30,7 +28,7 @@ $(function() {
         });
     });
 
-/* ------------------------------- MENU ---------------------------------- */
+    /* ------------------------------- MENU ---------------------------------- */
 
     // Menu Suite
     describe('The Menu', function() {
@@ -58,13 +56,12 @@ $(function() {
         });
     });
 
-/* ------------------------------- INITIAL ENTRIES ---------------------------------- */
+    /* ------------------------------- INITIAL ENTRIES ---------------------------------- */
 
 
     // Initial Entries Suite
     describe('Initial Entries', function() {
         var initialEntry;
-  
 
         // loadFeed functing is called and at least one element .entry is withing .feed
         beforeEach(function(done) {
@@ -75,7 +72,6 @@ $(function() {
             });
         });
 
-
         // check that it is not empty, at least a single .entry within .feed
         it('Consists of at least one entry when loaded', function(done) {
             expect(initialEntry.length).toBeGreaterThan(0);
@@ -84,7 +80,7 @@ $(function() {
         });
     });
 
-/* ------------------------------- NEW FEED ---------------------------------- */
+    /* ------------------------------- NEW FEED ---------------------------------- */
     // New Feed Selection Suite
     describe('New Feed Selection', function() {
         // feed 0
@@ -95,8 +91,8 @@ $(function() {
         /* calls first loadFeed func and puts it's results inside initialFeed
         then calls second time loadFeed to change content again. when loaded, 
         feed 0 and feed 1 are different and done() is ending function */
-        beforeEach(function (done) {
-            loadFeed(0, function () {
+        beforeEach(function(done) {
+            loadFeed(0, function() {
                 initialFeed = $('.feed').html();
                 loadFeed(1, done);
             });
@@ -104,11 +100,11 @@ $(function() {
 
         // checking if feed 0 and feed 1 are different
         it('When new feed is loaded content changes', function(done) {
-                feedAfter = $('.feed').html();
-                // console.log(feedAfter);
-                expect(initialFeed).not.toEqual(feedAfter);
-                done();
-            });
-
+            feedAfter = $('.feed').html();
+            // console.log(feedAfter);
+            expect(initialFeed).not.toEqual(feedAfter);
+            done();
         });
+
+    });
 }());
