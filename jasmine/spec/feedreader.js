@@ -83,9 +83,9 @@ $(function() {
     /* ------------------------------- NEW FEED ---------------------------------- */
     // New Feed Selection Suite
     describe('New Feed Selection', function() {
-        // feed 0
+        // feed 0 is initialFeed
         var initialFeed;
-        // feed 1
+        // feed 1 is feedAfter
         var feedAfter;
 
         /* calls first loadFeed func and puts it's results inside initialFeed
@@ -94,14 +94,15 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 initialFeed = $('.feed').html();
-                loadFeed(1, done);
+                loadFeed(1, function() {
+                feedAfter = $('.feed').html();
+                done();
+                });
             });
         });
 
         // checking if feed 0 and feed 1 are different
         it('When new feed is loaded content changes', function(done) {
-            feedAfter = $('.feed').html();
-            // console.log(feedAfter);
             expect(initialFeed).not.toEqual(feedAfter);
             done();
         });
